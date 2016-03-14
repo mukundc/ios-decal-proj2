@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="22v-LI-mqw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uoM-Ca-b8B">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Start Screen View Controller-->
@@ -20,7 +21,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Hangman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFe-UL-HRj">
                                 <rect key="frame" x="179" y="64" width="242" height="60"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KVZ-dh-ArZ">
@@ -42,7 +43,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EjV-nn-geb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1221" y="-195"/>
+            <point key="canvasLocation" x="2033" y="-195"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="a30-rS-MKZ">
@@ -56,82 +57,333 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Guess Letter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ngu-y7-Zg2">
-                                <rect key="frame" x="252" y="93" width="97" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="_ _ _ _ _ _ _ _ _ _" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dZ-Bw-Mz2">
-                                <rect key="frame" x="118" y="179" width="364" height="21"/>
+                                <rect key="frame" x="118" y="210" width="364" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Incorrect Guesses: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmE-D6-z74">
-                                <rect key="frame" x="226" y="397" width="149" height="21"/>
+                                <rect key="frame" x="226" y="420" width="149" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONn-21-WuE">
+                                <rect key="frame" x="180" y="262" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6mn-3C-TTb">
+                                <rect key="frame" x="176" y="115" width="30" height="30"/>
+                                <state key="normal" title="B"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="bn9-sQ-6lB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tck-ia-CVm">
+                                <rect key="frame" x="154" y="115" width="30" height="30"/>
+                                <state key="normal" title="A"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="kAT-v8-PJc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dee-Nr-Ntx">
+                                <rect key="frame" x="197" y="115" width="30" height="30"/>
+                                <state key="normal" title="C"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="yzY-C6-gQc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9E-AU-vQL">
+                                <rect key="frame" x="219" y="115" width="30" height="30"/>
+                                <state key="normal" title="D"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="2te-F5-1wA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mH3-KX-ooO">
+                                <rect key="frame" x="263" y="115" width="30" height="30"/>
+                                <state key="normal" title="F"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="Nof-2v-ut1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="quO-bM-JxD">
+                                <rect key="frame" x="241" y="115" width="30" height="30"/>
+                                <state key="normal" title="E"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="Te6-Qm-tG0"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9wX-hn-Bjc">
+                                <rect key="frame" x="284" y="115" width="30" height="30"/>
+                                <state key="normal" title="G"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="CRi-Sd-BAf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e58-BP-ocu">
+                                <rect key="frame" x="306" y="115" width="30" height="30"/>
+                                <state key="normal" title="H"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="yeA-uJ-aIg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7H-UE-Hq0">
+                                <rect key="frame" x="351" y="115" width="30" height="30"/>
+                                <state key="normal" title="J"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="xMS-5t-f7w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNg-WW-0tg">
+                                <rect key="frame" x="329" y="115" width="30" height="30"/>
+                                <state key="normal" title="I"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="nOZ-tD-msd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rx3-g6-WXy">
+                                <rect key="frame" x="372" y="115" width="30" height="30"/>
+                                <state key="normal" title="K"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="WdN-7q-PZ6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZP6-a9-5Ki">
+                                <rect key="frame" x="394" y="115" width="30" height="30"/>
+                                <state key="normal" title="L"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="kvx-fu-uCx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VeE-qy-TFN">
+                                <rect key="frame" x="416" y="115" width="30" height="30"/>
+                                <state key="normal" title="M"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="Bh8-62-4IS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d14-uf-F6O">
+                                <rect key="frame" x="176" y="145" width="30" height="30"/>
+                                <state key="normal" title="O"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="fZN-OZ-S9e"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g12-op-IJf">
+                                <rect key="frame" x="154" y="145" width="30" height="30"/>
+                                <state key="normal" title="N"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="70c-XL-0Gl"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VwQ-jW-QrU">
+                                <rect key="frame" x="219" y="145" width="30" height="30"/>
+                                <state key="normal" title="Q"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="VgA-bk-A3j"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCA-MF-SEk">
+                                <rect key="frame" x="263" y="145" width="30" height="30"/>
+                                <state key="normal" title="S"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="FC7-xr-eJ9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ee7-Rw-O7P">
+                                <rect key="frame" x="241" y="145" width="30" height="30"/>
+                                <state key="normal" title="R"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="8c3-Vu-Gog"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K3d-aR-vlm">
+                                <rect key="frame" x="284" y="145" width="30" height="30"/>
+                                <state key="normal" title="T"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="ej6-fL-siK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6d7-EX-OEU">
+                                <rect key="frame" x="306" y="145" width="30" height="30"/>
+                                <state key="normal" title="U"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="T2w-SA-cn7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="itW-yF-ba3">
+                                <rect key="frame" x="351" y="145" width="30" height="30"/>
+                                <state key="normal" title="W"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="BTj-Qs-bUv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ksV-P5-Wk1">
+                                <rect key="frame" x="329" y="145" width="30" height="30"/>
+                                <state key="normal" title="V"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="uVC-Sr-Pu6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xm8-71-1Eb">
+                                <rect key="frame" x="372" y="145" width="30" height="30"/>
+                                <state key="normal" title="X"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="UIz-Fp-evf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20n-5Q-a0N">
+                                <rect key="frame" x="394" y="145" width="30" height="30"/>
+                                <state key="normal" title="Y"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="6QZ-1d-zhR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deT-pf-alk">
+                                <rect key="frame" x="416" y="145" width="30" height="30"/>
+                                <state key="normal" title="Z"/>
+                                <connections>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="ebT-kb-gcY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Guess a letter below:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lKH-yI-24G">
+                                <rect key="frame" x="219" y="80" width="161" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aMu-aA-Ouw">
-                                <rect key="frame" x="398" y="72" width="84" height="30"/>
-                                <state key="normal" title="Correct"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r85-fc-p9q">
+                                <rect key="frame" x="197" y="145" width="30" height="30"/>
+                                <state key="normal" title="P"/>
                                 <connections>
-                                    <action selector="correctAction:" destination="tGa-22-x1I" eventType="touchUpInside" id="S3o-BU-zSK"/>
-                                </connections>
-                            </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONn-21-WuE">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tLV-Ju-wIK">
-                                <rect key="frame" x="398" y="110" width="84" height="30"/>
-                                <state key="normal" title="Incorrect"/>
-                                <connections>
-                                    <action selector="incorrectAction:" destination="tGa-22-x1I" eventType="touchUpInside" id="kLU-dp-CeE"/>
+                                    <action selector="guessLetter:" destination="tGa-22-x1I" eventType="touchUpInside" id="Hjm-VZ-bt3"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="itW-yF-ba3" firstAttribute="centerY" secondItem="xm8-71-1Eb" secondAttribute="centerY" id="2Qv-Gp-1PO"/>
+                            <constraint firstItem="xCA-MF-SEk" firstAttribute="top" secondItem="mH3-KX-ooO" secondAttribute="bottom" id="32i-bL-cXT"/>
+                            <constraint firstItem="9wX-hn-Bjc" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="3UT-Ya-3tc"/>
+                            <constraint firstItem="xm8-71-1Eb" firstAttribute="centerY" secondItem="20n-5Q-a0N" secondAttribute="centerY" id="3pO-fS-AYE"/>
+                            <constraint firstItem="6mn-3C-TTb" firstAttribute="leading" secondItem="Tck-ia-CVm" secondAttribute="trailing" constant="-8" id="4B1-TT-v2T"/>
+                            <constraint firstItem="9wX-hn-Bjc" firstAttribute="top" secondItem="lKH-yI-24G" secondAttribute="bottom" constant="14" id="5w8-Sf-lOF"/>
+                            <constraint firstItem="9wX-hn-Bjc" firstAttribute="leading" secondItem="mH3-KX-ooO" secondAttribute="trailing" constant="-9" id="6wO-Wd-Bix"/>
+                            <constraint firstItem="VwQ-jW-QrU" firstAttribute="centerY" secondItem="Ee7-Rw-O7P" secondAttribute="centerY" id="7Cp-tQ-Zn6"/>
                             <constraint firstItem="ONn-21-WuE" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="7gX-2F-W7h"/>
+                            <constraint firstItem="K3d-aR-vlm" firstAttribute="centerX" secondItem="9wX-hn-Bjc" secondAttribute="centerX" id="7y5-pJ-1c6"/>
+                            <constraint firstItem="g12-op-IJf" firstAttribute="centerY" secondItem="d14-uf-F6O" secondAttribute="centerY" id="AXU-JL-qfH"/>
+                            <constraint firstItem="e58-BP-ocu" firstAttribute="centerY" secondItem="9wX-hn-Bjc" secondAttribute="centerY" id="BKB-iK-z7u"/>
+                            <constraint firstItem="6d7-EX-OEU" firstAttribute="centerY" secondItem="K3d-aR-vlm" secondAttribute="centerY" id="BRr-Yd-gsj"/>
                             <constraint firstItem="YmE-D6-z74" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="CDB-M3-YMN"/>
-                            <constraint firstItem="aMu-aA-Ouw" firstAttribute="leading" secondItem="ngu-y7-Zg2" secondAttribute="trailing" constant="25" id="Ml8-lD-VH5"/>
-                            <constraint firstItem="tLV-Ju-wIK" firstAttribute="centerX" secondItem="aMu-aA-Ouw" secondAttribute="centerX" id="XLe-19-jPt"/>
-                            <constraint firstItem="ngu-y7-Zg2" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="bJi-R8-VZy"/>
+                            <constraint firstItem="d14-uf-F6O" firstAttribute="top" secondItem="6mn-3C-TTb" secondAttribute="bottom" id="EdN-gY-frH"/>
+                            <constraint firstItem="deT-pf-alk" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="102" id="EeF-vx-NVa"/>
+                            <constraint firstItem="20n-5Q-a0N" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="80" id="Gs6-ay-gPE"/>
+                            <constraint firstItem="e58-BP-ocu" firstAttribute="leading" secondItem="9wX-hn-Bjc" secondAttribute="trailing" constant="-8" id="HJt-sc-2kT"/>
+                            <constraint firstItem="r85-fc-p9q" firstAttribute="leading" secondItem="d14-uf-F6O" secondAttribute="trailing" constant="-9" id="HXy-t4-6GG"/>
+                            <constraint firstItem="v7H-UE-Hq0" firstAttribute="centerY" secondItem="dNg-WW-0tg" secondAttribute="centerY" id="IGo-hB-BJs"/>
+                            <constraint firstItem="xCA-MF-SEk" firstAttribute="centerY" secondItem="K3d-aR-vlm" secondAttribute="centerY" id="IW8-8h-acY"/>
+                            <constraint firstItem="K3d-aR-vlm" firstAttribute="top" secondItem="9wX-hn-Bjc" secondAttribute="bottom" id="Kot-im-yxa"/>
+                            <constraint firstItem="9wX-hn-Bjc" firstAttribute="leading" secondItem="mH3-KX-ooO" secondAttribute="trailing" constant="-9" id="LIF-9z-E96"/>
+                            <constraint firstItem="xCA-MF-SEk" firstAttribute="leading" secondItem="Ee7-Rw-O7P" secondAttribute="trailing" constant="-8" id="Lna-Jl-Thi"/>
+                            <constraint firstItem="dNg-WW-0tg" firstAttribute="centerY" secondItem="e58-BP-ocu" secondAttribute="centerY" id="Lok-7R-2hh"/>
+                            <constraint firstItem="Ee7-Rw-O7P" firstAttribute="leading" secondItem="VwQ-jW-QrU" secondAttribute="trailing" constant="-8" id="Lv9-br-4sy"/>
+                            <constraint firstItem="d14-uf-F6O" firstAttribute="leading" secondItem="g12-op-IJf" secondAttribute="trailing" constant="-8" id="MHE-JQ-0mG"/>
+                            <constraint firstItem="ZP6-a9-5Ki" firstAttribute="centerY" secondItem="Rx3-g6-WXy" secondAttribute="centerY" id="MLp-9V-J3f"/>
+                            <constraint firstItem="YmE-D6-z74" firstAttribute="top" secondItem="ONn-21-WuE" secondAttribute="bottom" constant="30" id="Md9-Jb-TWs"/>
+                            <constraint firstItem="itW-yF-ba3" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="37" id="Mgf-ey-ERf"/>
+                            <constraint firstItem="quO-bM-JxD" firstAttribute="centerY" secondItem="t9E-AU-vQL" secondAttribute="centerY" id="N8s-T6-ir5"/>
+                            <constraint firstItem="ksV-P5-Wk1" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="15" id="NUe-np-pbU"/>
+                            <constraint firstItem="Rx3-g6-WXy" firstAttribute="centerY" secondItem="v7H-UE-Hq0" secondAttribute="centerY" id="OJX-t0-0ri"/>
+                            <constraint firstItem="v7H-UE-Hq0" firstAttribute="leading" secondItem="9wX-hn-Bjc" secondAttribute="trailing" constant="37" id="ONE-ao-bz6"/>
+                            <constraint firstItem="VeE-qy-TFN" firstAttribute="centerY" secondItem="ZP6-a9-5Ki" secondAttribute="centerY" id="Rxw-O9-QYW"/>
+                            <constraint firstItem="dNg-WW-0tg" firstAttribute="leading" secondItem="9wX-hn-Bjc" secondAttribute="trailing" constant="15" id="Ryz-vC-LLz"/>
+                            <constraint firstItem="quO-bM-JxD" firstAttribute="centerY" secondItem="mH3-KX-ooO" secondAttribute="centerY" id="Sjy-N8-qow"/>
+                            <constraint firstItem="quO-bM-JxD" firstAttribute="leading" secondItem="t9E-AU-vQL" secondAttribute="trailing" constant="-8" id="Tpl-Ov-a17"/>
+                            <constraint firstItem="6d7-EX-OEU" firstAttribute="centerY" secondItem="ksV-P5-Wk1" secondAttribute="centerY" id="Tsy-Xl-1Yt"/>
+                            <constraint firstItem="Rx3-g6-WXy" firstAttribute="leading" secondItem="9wX-hn-Bjc" secondAttribute="trailing" constant="58" id="VBL-nt-0Vm"/>
+                            <constraint firstItem="6d7-EX-OEU" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="-8" id="YRv-Q6-4sF"/>
+                            <constraint firstItem="xm8-71-1Eb" firstAttribute="leading" secondItem="K3d-aR-vlm" secondAttribute="trailing" constant="58" id="ZJq-id-ixc"/>
+                            <constraint firstItem="3dZ-Bw-Mz2" firstAttribute="top" secondItem="lKH-yI-24G" secondAttribute="bottom" constant="109" id="a3x-w7-tbb"/>
+                            <constraint firstItem="g12-op-IJf" firstAttribute="centerX" secondItem="Tck-ia-CVm" secondAttribute="centerX" id="bMh-u1-nTU"/>
+                            <constraint firstItem="d14-uf-F6O" firstAttribute="centerY" secondItem="r85-fc-p9q" secondAttribute="centerY" id="cjy-uc-xy7"/>
+                            <constraint firstItem="deT-pf-alk" firstAttribute="centerX" secondItem="VeE-qy-TFN" secondAttribute="centerX" id="fBQ-SN-VeN"/>
+                            <constraint firstItem="t9E-AU-vQL" firstAttribute="centerY" secondItem="dee-Nr-Ntx" secondAttribute="centerY" id="fMX-pU-ncy"/>
+                            <constraint firstItem="r85-fc-p9q" firstAttribute="leading" secondItem="d14-uf-F6O" secondAttribute="trailing" constant="-9" id="g8B-ZD-KO9"/>
+                            <constraint firstItem="t9E-AU-vQL" firstAttribute="leading" secondItem="dee-Nr-Ntx" secondAttribute="trailing" constant="-8" id="gMm-Wd-eJa"/>
+                            <constraint firstItem="xCA-MF-SEk" firstAttribute="centerY" secondItem="K3d-aR-vlm" secondAttribute="centerY" id="ilW-8B-pJh"/>
+                            <constraint firstItem="ONn-21-WuE" firstAttribute="top" secondItem="3dZ-Bw-Mz2" secondAttribute="bottom" constant="31" id="jNI-3Z-0Kh"/>
+                            <constraint firstItem="xCA-MF-SEk" firstAttribute="top" secondItem="mH3-KX-ooO" secondAttribute="bottom" id="jdC-Ly-aUO"/>
+                            <constraint firstItem="lKH-yI-24G" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="jfR-9b-45u"/>
+                            <constraint firstItem="r85-fc-p9q" firstAttribute="centerY" secondItem="VwQ-jW-QrU" secondAttribute="centerY" id="jlQ-cd-wIr"/>
+                            <constraint firstItem="g12-op-IJf" firstAttribute="top" secondItem="Tck-ia-CVm" secondAttribute="bottom" id="jrb-hW-gm2"/>
+                            <constraint firstItem="20n-5Q-a0N" firstAttribute="centerY" secondItem="deT-pf-alk" secondAttribute="centerY" id="o3N-DI-0iq"/>
+                            <constraint firstItem="6mn-3C-TTb" firstAttribute="centerY" secondItem="Tck-ia-CVm" secondAttribute="centerY" id="obk-eK-FSX"/>
+                            <constraint firstItem="9wX-hn-Bjc" firstAttribute="centerY" secondItem="mH3-KX-ooO" secondAttribute="centerY" id="pmk-JT-p5k"/>
+                            <constraint firstItem="Ee7-Rw-O7P" firstAttribute="top" secondItem="quO-bM-JxD" secondAttribute="bottom" id="pms-39-qv6"/>
+                            <constraint firstItem="VwQ-jW-QrU" firstAttribute="leading" secondItem="r85-fc-p9q" secondAttribute="trailing" constant="-8" id="qer-UV-IPD"/>
                             <constraint firstItem="3dZ-Bw-Mz2" firstAttribute="centerX" secondItem="dAy-DB-BLM" secondAttribute="centerX" id="qwt-iq-9H5"/>
-                            <constraint firstItem="tLV-Ju-wIK" firstAttribute="top" secondItem="aMu-aA-Ouw" secondAttribute="bottom" constant="8" id="tWw-4h-uH6"/>
+                            <constraint firstItem="VwQ-jW-QrU" firstAttribute="leading" secondItem="r85-fc-p9q" secondAttribute="trailing" constant="-8" id="r1c-8s-rCh"/>
+                            <constraint firstItem="VeE-qy-TFN" firstAttribute="leading" secondItem="ZP6-a9-5Ki" secondAttribute="trailing" constant="-8" id="rsa-c6-f9T"/>
+                            <constraint firstItem="dNg-WW-0tg" firstAttribute="leading" secondItem="e58-BP-ocu" secondAttribute="trailing" constant="-7" id="rzk-dc-NBS"/>
+                            <constraint firstItem="deT-pf-alk" firstAttribute="top" secondItem="VeE-qy-TFN" secondAttribute="bottom" id="s2F-oL-F51"/>
+                            <constraint firstItem="Ee7-Rw-O7P" firstAttribute="centerY" secondItem="xCA-MF-SEk" secondAttribute="centerY" id="tL6-6l-1aM"/>
+                            <constraint firstItem="K3d-aR-vlm" firstAttribute="leading" secondItem="xCA-MF-SEk" secondAttribute="trailing" constant="-9" id="tzu-qD-KgR"/>
+                            <constraint firstItem="ksV-P5-Wk1" firstAttribute="centerY" secondItem="itW-yF-ba3" secondAttribute="centerY" id="viB-Qh-ic5"/>
+                            <constraint firstItem="mH3-KX-ooO" firstAttribute="leading" secondItem="quO-bM-JxD" secondAttribute="trailing" constant="-8" id="wse-f6-1jN"/>
+                            <constraint firstItem="dee-Nr-Ntx" firstAttribute="leading" secondItem="6mn-3C-TTb" secondAttribute="trailing" constant="-9" id="x09-v6-3A1"/>
+                            <constraint firstItem="mH3-KX-ooO" firstAttribute="leading" secondItem="quO-bM-JxD" secondAttribute="trailing" constant="-8" id="zBO-kg-3LE"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Jbv-KF-sR8">
+                        <barButtonItem key="leftBarButtonItem" title="Exit" id="WTM-Dl-r0D">
+                            <connections>
+                                <action selector="backButton:" destination="tGa-22-x1I" id="Zkh-Y6-jt6"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="New Game" id="i6E-3B-Rb1">
+                                <connections>
+                                    <action selector="newGame:" destination="tGa-22-x1I" id="i2G-Z2-byg"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Restart" id="EHi-kA-L8D">
+                                <connections>
+                                    <action selector="restartGame:" destination="tGa-22-x1I" id="w8h-mD-d57"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="correctButton" destination="aMu-aA-Ouw" id="gHT-3e-Gkg"/>
-                        <outlet property="guessLabel" destination="ngu-y7-Zg2" id="dLv-eJ-Byh"/>
                         <outlet property="hangmanImage" destination="ONn-21-WuE" id="rp5-Bk-4L0"/>
                         <outlet property="hangmanWordLabel" destination="3dZ-Bw-Mz2" id="82g-yV-7do"/>
-                        <outlet property="incorrectButton" destination="tLV-Ju-wIK" id="HAL-HY-Cmn"/>
                         <outlet property="incorrectGuessesLabel" destination="YmE-D6-z74" id="cqh-ZB-SON"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oU5-3X-hes" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2133" y="-195"/>
+            <point key="canvasLocation" x="2945" y="-195"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="Vjn-3o-adn">
+        <scene sceneID="38B-tM-D9a">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="22v-LI-mqw" sceneMemberID="viewController">
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wuz-t5-mEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uoM-Ca-b8B" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="l6O-KU-bbc">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OMP-Kt-f4h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="hKX-KT-lbX" kind="relationship" relationship="rootViewController" id="vT6-Io-9Vg"/>
+                        <segue destination="hKX-KT-lbX" kind="relationship" relationship="rootViewController" id="O3Z-ga-7So"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rdi-Jd-mzj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="409" y="-195"/>
+            <point key="canvasLocation" x="1221" y="-195"/>
         </scene>
     </scenes>
 </document>
